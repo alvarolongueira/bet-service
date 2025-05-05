@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.alvarolongueira.bet.service</groupId>
+        <artifactId>bet-service-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <artifactId>bet-service-main</artifactId>
+    <name>Bet Service - Main</name>
+
+    <dependencies>
+        <!-- module dependencies -->
+        <dependency>
+            <groupId>com.alvarolongueira.bet.service</groupId>
+            <artifactId>bet-service-manager-domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alvarolongueira.bet.service</groupId>
+            <artifactId>bet-service-manager-event-income</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alvarolongueira.bet.service</groupId>
+            <artifactId>bet-service-manager-database</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alvarolongueira.bet.service</groupId>
+            <artifactId>bet-service-manager-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alvarolongueira.bet.service</groupId>
+            <artifactId>bet-service-rest-api-spec</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alvarolongueira.bet.service</groupId>
+            <artifactId>bet-service-rest-api-controller</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alvarolongueira.bet.service</groupId>
+            <artifactId>bet-service-rest-api-client</artifactId>
+        </dependency>
+
+        <!-- kafka -->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+
+        <!-- test dependencies -->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-testcontainers</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>kafka</artifactId>
+            <version>1.21.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>main</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.alvarolongueira.bet.service.BetServiceApplication</mainClass>
+                    <layers>
+                        <enabled>true</enabled>
+                    </layers>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

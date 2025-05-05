@@ -1,0 +1,80 @@
+server:
+  port: ${APP_SERVER_PORT:8080}
+  shutdown: graceful
+
+# SPRING CONFIG
+spring:
+  application:
+    name: bet-service
+    version: '@project.version@'
+  profiles:
+    active: ${APP_ACTIVE_PROFILE:dev}
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    default-property-inclusion: non_null
+  kafka:
+    bootstrap-servers: ${KAFKA_HOST:localhost:29092}
+    consumer:
+      group-id: ${bet.kafka.group-id}
+  sql:
+    init:
+      mode: always
+  jpa:
+    defer-datasource-initialization: true
+
+rocketmq:
+  name-server: ${ROCKETMQ_HOST:localhost:9876}
+  producer:
+    group: ${bet.rocketmq.group-id}
+
+bet:
+  kafka:
+    group-id: 'bet_kafka_events'
+    topic:
+      outcome: 'event-outcomes'
+  rocketmq:
+    group-id: 'bet_rocketmq_events'
+    topic:
+      outcome: 'bet-settlements'
+
+# MANAGEMENT ENDPOINTS
+management:
+  security:
+    enabled: false
+  context-path: /
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+      base-path: /
+      path-mapping:
+        prometheus: metrics
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: always
+      show-components: always
+  health:
+    binders:
+      enabled: true
+    db:
+      enabled: true
+    livenessState:
+      enabled: true
+    readinessState:
+      enabled: true
+
+# OPENAPI GENERATION
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: alpha

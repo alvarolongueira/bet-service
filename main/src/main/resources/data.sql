@@ -1,0 +1,11 @@
+insert into bets (bet_id, user_id, event_id, event_market_id, winner_id, amount) values(1, 'james', 'soccer', 'marketId', 'bird', 1.0);
+insert into bets (bet_id, user_id, event_id, event_market_id, winner_id, amount) values(2, 'james', 'soccer', 'marketId', 'lion', 20.23);
+insert into bets (bet_id, user_id, event_id, event_market_id, winner_id, amount) values(3, 'james', 'soccer', 'marketId', 'dog', 30.0);
+insert into bets (bet_id, user_id, event_id, event_market_id, winner_id, amount) values(4, 'james', 'soccer', 'marketId', 'cat', 22.0);
+insert into bets (bet_id, user_id, event_id, event_market_id, winner_id, amount) values(5, 'emily', 'basketball', 'marketId', 'bird', 4.0);
+insert into bets (bet_id, user_id, event_id, event_market_id, winner_id, amount) values(6, 'emily', 'basketball', 'marketId', 'dog', 6.0);
+insert into bets (bet_id, user_id, event_id, event_market_id, winner_id, amount) values(7, 'emily', 'soccer', 'marketId', 'dog', 13.0);
+insert into bets (bet_id, user_id, event_id, event_market_id, winner_id, amount) values(8, 'ana', 'tennis', 'marketId', 'lion', 16.0);
+insert into bets (bet_id, user_id, event_id, event_market_id, winner_id, amount) values(9, 'ana', 'soccer', 'marketId', 'lion', 19.0);
+insert into bets (bet_id, user_id, event_id, event_market_id, winner_id, amount) values(10, 'ana', 'basketball', 'marketId', 'lion', 40.0);
+insert into bets (bet_id, user_id, event_id, event_market_id, winner_id, amount) values(11, 'clark', 'soccer', 'marketId', 'lion', 61.0);
